@@ -1,0 +1,71 @@
+.main-container {
+    margin-top: 5rem;
+}
+
+.header-group,
+.input-group,
+.footer-group {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-group {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-group h3 {
+    font-weight: 400;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    /*margin: top right bottom left*/
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn-login {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-login:hover,
+.btn-login:active {
+    background-color: #02a984;
+}
+
+.footer-group p {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-group {
+    margin-top: 10px;
+}
+
+.toggle-incorrect {
+    border: 2px solid #da3d3d;
+}
