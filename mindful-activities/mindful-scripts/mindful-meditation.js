@@ -110,7 +110,7 @@ function checkMeditationStatus() {
 
         // If the session is COMPLETE
         if (elapsedTime >= parseInt(duration)) {
-            logExerciseInDB() // log the exercise in the DB
+            logExerciseInDB(); // log the exercise in the DB
 
             continueButton.style.display = 'inline-block';
             exerciseInstructions.innerHTML = '<p class="instructional-statement"><b>Congratulations!!</b><br>You have successfully completed this exercise</p>';

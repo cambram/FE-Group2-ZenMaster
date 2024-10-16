@@ -111,7 +111,7 @@ function checkBodyScanStatus() {
 
         // If the session is COMPLETE
         if (elapsedTime >= parseInt(duration)) {
-            logExerciseInDB()
+            logExerciseInDB();
             continueButton.style.display = 'inline-block';
             exerciseInstructions.innerHTML = '<p class="instructional-statement"><b>Congratulations!!</b><br>You have successfully completed this exercise</p>';
             exerciseHeading.style.marginTop = '60px';
