@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3000/auth/auth-status', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/auth-status', {
         method: 'GET',
         credentials: 'include' // Send session cookie with the request
     });
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('username').textContent = `Hello, ${data.username}!`;
 
         // Fetch the user's achievements from MongoDB
-        const userAchievementsResponse = await fetch('http://localhost:3000/achievements', {
+        const userAchievementsResponse = await fetch('https://be-group2-zenmaster.onrender.com/achievements', {
             method: 'GET',
             credentials: 'include'
         });
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.getElementById('logout-btn').addEventListener('click', async () => {
-    const response = await fetch('http://localhost:3000/auth/logout', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/logout', {
         method: 'POST',
         credentials: 'include', // Send session cookie with the request
     });

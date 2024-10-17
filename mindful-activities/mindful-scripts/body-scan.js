@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3000/auth/auth-status', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/auth-status', {
         method: 'GET',
         credentials: 'include' // Send session cookie with the request
     });
@@ -60,7 +60,7 @@ async function logExerciseInDB() {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/exercises/complete', {
+        const response = await fetch('https://be-group2-zenmaster.onrender.com/exercises/complete', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

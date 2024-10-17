@@ -15,7 +15,7 @@ const achievementsContainer = document.getElementById('achievements-card-layout'
 let achievementsHTML = '';
 
 const awardAchievements = async () => {
-    const response = await fetch('http://localhost:3000/achievements/award-achievements', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/achievements/award-achievements', {
         method: 'POST',
         credentials: 'include'
     });
@@ -30,7 +30,7 @@ const awardAchievements = async () => {
 
 // Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3000/auth/auth-status', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/auth-status', {
         method: 'GET',
         credentials: 'include'
     });
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         achievementsContainer.innerHTML = achievementsHTML;
 
         // Fetch the user's achievements from MongoDB
-        const userAchievementsResponse = await fetch('http://localhost:3000/achievements', {
+        const userAchievementsResponse = await fetch('https://be-group2-zenmaster.onrender.com/achievements', {
             method: 'GET',
             credentials: 'include'
         });
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Logout logic
 document.getElementById('logout-btn').addEventListener('click', async () => {
-    const response = await fetch('http://localhost:3000/auth/logout', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/logout', {
         method: 'POST',
         credentials: 'include',
     });

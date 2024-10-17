@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3000/auth/check-session', {
+    const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/check-session', {
         method: 'GET',
         credentials: 'include',  // This is important to send cookies with the request
     });
@@ -24,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     if (username == null || password == null || username == "" || password == "") {
         incorrectLoginCSS();
     } else {
-        const response = await fetch('http://localhost:3000/auth/login', {
+        const response = await fetch('https://be-group2-zenmaster.onrender.com/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
