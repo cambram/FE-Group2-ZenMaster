@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const backArrow = document.getElementById('back-arrow');
 const continueButton = document.getElementById('btn-continue-mindful-meditation');
+const pleaseWait = document.getElementById('please-wait');
 const fiveMinutesButton = document.getElementById('btn-begin-mindful-meditation-5min');
 const fifteenMinutesButton = document.getElementById('btn-begin-mindful-meditation-15min');
 const initialInstructionContainer = document.getElementById('initial-instruction-container');
@@ -31,6 +32,7 @@ let duration;
 
 // Hide the continue button initially
 continueButton.style.display = 'none';
+pleaseWait.style.display = 'none';
 
 // Helper function to format time (optional, for console logging)
 function formatTime(ms) {
@@ -71,6 +73,8 @@ async function logExerciseInDB() {
 
         if (response.ok) {
             console.log('Exercise successfully logged');
+            pleaseWait.style.display = 'none';
+            continueButton.style.display = 'inline-block';
         } else {
             console.error('Failed to log exercise');
         }
@@ -110,12 +114,11 @@ function checkMeditationStatus() {
 
         // If the session is COMPLETE
         if (elapsedTime >= parseInt(duration)) {
-            logExerciseInDB(); // log the exercise in the DB
-
-            continueButton.style.display = 'inline-block';
+            pleaseWait.style.display = 'inline-block';
             exerciseInstructions.innerHTML = '<p class="instructional-statement"><b>Congratulations!!</b><br>You have successfully completed this exercise</p>';
             exerciseHeading.style.marginTop = '60px';
 
+            logExerciseInDB(); // log the exercise in the DB
             endAudio.play();
 
             // Show the continue button

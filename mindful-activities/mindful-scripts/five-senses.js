@@ -31,6 +31,7 @@ const exerciseInstructions = document.getElementById('five-senses-instructions')
 const exerciseHeading = document.getElementById('exercise-heading');
 const nextButton = document.getElementById('btn-next-five-senses');
 const continueButton = document.getElementById('btn-continue-five-senses');
+const pleaseWait = document.getElementById('please-wait');
 const backArrow = document.getElementById('back-arrow');
 
 async function logExerciseInDB() {
@@ -52,6 +53,8 @@ async function logExerciseInDB() {
 
         if (response.ok) {
             console.log('Exercise successfully logged');
+            pleaseWait.style.display = 'none';
+            continueButton.style.display = 'inline-block';
         } else {
             console.error('Failed to log exercise');
         }
@@ -67,11 +70,12 @@ function loadStep(stepIndex) {
 
     // Hide the NEXT button on the last step and show CONTINUE button and add to database
     if (stepIndex === exerciseSteps.length - 1) {
-        logExerciseInDB();
+        pleaseWait.style.display = 'inline-block';
         nextButton.style.display = 'none';
         exerciseHeading.style.marginTop = '60px';
         backArrow.style.display = 'none';
-        continueButton.style.display = 'inline-block';
+
+        logExerciseInDB();
         endAudio.play();
     }
 }
@@ -100,3 +104,4 @@ continueButton.addEventListener('click', () => {
 });
 
 continueButton.style.display = 'none';
+pleaseWait.style.display = 'none';

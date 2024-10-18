@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const backArrow = document.getElementById('back-arrow');
 const continueButton = document.getElementById('btn-continue-body-scan');
+const pleaseWait = document.getElementById('please-wait');
 const threeMinutesButton = document.getElementById('btn-begin-body-scan-3min');
 const tenMinutesButton = document.getElementById('btn-begin-body-scan-10min');
 const initialInstructionContainer = document.getElementById('initial-instruction-container');
@@ -31,6 +32,7 @@ let startAudio = new Audio("./audio/start-exercise.mp3");
 
 // Hide the continue button initially
 continueButton.style.display = 'none';
+pleaseWait.style.display = 'none';
 
 // Helper function to format time (optional, for console logging)
 function formatTime(ms) {
@@ -71,6 +73,8 @@ async function logExerciseInDB() {
 
         if (response.ok) {
             console.log('Exercise successfully logged');
+            pleaseWait.style.display = 'none';
+            continueButton.style.display = 'inline-block';
         } else {
             console.error('Failed to log exercise');
         }
@@ -111,11 +115,11 @@ function checkBodyScanStatus() {
 
         // If the session is COMPLETE
         if (elapsedTime >= parseInt(duration)) {
-            logExerciseInDB();
-            continueButton.style.display = 'inline-block';
+            pleaseWait.style.display = 'inline-block';
             exerciseInstructions.innerHTML = '<p class="instructional-statement"><b>Congratulations!!</b><br>You have successfully completed this exercise</p>';
             exerciseHeading.style.marginTop = '60px';
 
+            logExerciseInDB();
             endAudio.play();
 
             // Show the continue button

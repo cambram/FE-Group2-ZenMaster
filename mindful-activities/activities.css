@@ -70,3 +70,8 @@
 dynamic-five-senses-instructions-dif {
     min-height: 100%;
 }
+
+#please-wait {
+    font-size: 1.5rem;
+    margin-top: 3rem
+}
